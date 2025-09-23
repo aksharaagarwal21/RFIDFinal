@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# 🎓 RFID University Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Complete full-stack application for university management using RFID technology for real-time tracking, attendance monitoring, and comprehensive student services.
 
-## Available Scripts
+## 📁 Project Structure
 
-In the project directory, you can run:
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔐 Authentication & Security
+- JWT-based authentication
+- Role-based access control (Student, Teacher, Warden, Parent)
+- Secure password hashing with bcrypt
+- Rate limiting and CORS protection
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📡 RFID Integration
+- Real-time RFID card scanning
+- Location tracking (Gates, Classrooms, Library, Mess)
+- Automated attendance marking
+- Entry/Exit logging with timestamps
 
-### `npm test`
+### 📊 Dashboard Systems
+- **Student Dashboard:** Attendance stats, upcoming exams, mess logs, gamification
+- **Teacher Dashboard:** Class management, attendance tracking, exam creation
+- **Warden Dashboard:** Security monitoring, hostel management, real-time alerts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📚 Academic Management
+- Automated attendance tracking with RFID
+- Exam scheduling and result management
+- Class timetable integration
+- Performance analytics and reports
 
-### `npm run build`
+### 🍽️ Mess Management
+- RFID-based meal tracking
+- Cost monitoring and budgeting
+- Meal recommendations based on patterns
+- Payment integration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🛡️ Security & Monitoring
+- Automated security alerts for unusual activities
+- Real-time location monitoring
+- Late night exit warnings
+- Suspicious activity detection
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🎮 Gamification
+- Points system for various activities
+- Achievement badges and rewards
+- Leaderboards (Overall, Department, Year-wise)
+- Streak tracking for attendance and activities
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📱 Real-time Features
+- Live location updates via Socket.IO
+- Instant notifications
+- Real-time dashboard updates
+- Push notifications for important events
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB with Mongoose ODM
+- **Authentication:** JWT + bcrypt
+- **Real-time:** Socket.IO
+- **Validation:** express-validator
+- **Security:** helmet, cors, express-rate-limit
+- **File Upload:** multer
+- **Email:** nodemailer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend
+- **Framework:** React.js 18+
+- **Routing:** React Router v6
+- **State Management:** Context API + useReducer
+- **Styling:** CSS3 with CSS Variables
+- **HTTP Client:** Axios
+- **Real-time:** Socket.IO Client
+- **Icons:** React Icons
+- **Charts:** Chart.js (for analytics)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Database Schema
+- **Users:** Students, Teachers, Wardens, Parents
+- **RFID Logs:** All scan activities with timestamps
+- **Attendance:** Class-wise attendance records
+- **Classes:** Subject and schedule management
+- **Exams:** Examination management
+- **Mess Logs:** Meal tracking and payments
+- **Security Alerts:** Automated security monitoring
+- **Gamification:** Points, badges, achievements
+- **Notifications:** In-app notification system
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Quick Start
 
-## Learn More
+### Prerequisites
+- Node.js 16+ and npm
+- MongoDB 6.0+
+- Git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the repository**
 
-### Code Splitting
+2. **Setup Backend**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Setup Frontend**
 
-### Analyzing the Bundle Size
+4. **Access Application**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+- API Documentation: http://localhost:5000/api
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📖 API Documentation
 
-### Making a Progressive Web App
+### Base URL: `http://localhost:5000/api`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Authentication Endpoints
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `GET /auth/me` - Get current user profile
+- `PUT /auth/profile` - Update user profile
+- `PUT /auth/password` - Change password
 
-### Advanced Configuration
+#### Dashboard Endpoints
+- `GET /dashboard/student` - Student dashboard data
+- `GET /dashboard/teacher` - Teacher dashboard data
+- `GET /dashboard/warden` - Warden dashboard data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### RFID Operations
+- `POST /rfid/scan` - Process RFID card scan
+- `GET /rfid/logs` - Get scan history
+- `GET /rfid/location-history/:userId` - User location history
 
-### Deployment
+#### Attendance Management
+- `POST /attendance/mark` - Manual attendance marking
+- `GET /attendance` - Get attendance records
+- `GET /attendance/stats` - Attendance statistics
+- `GET /attendance/report` - Generate attendance report
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Exam Management
+- `POST /exam` - Create new exam
+- `GET /exam` - Get exams list
+- `GET /exam/:id` - Get exam details
+- `POST /exam/:id/results` - Add exam results
+- `PUT /exam/:id/publish` - Publish exam results
 
-### `npm run build` fails to minify
+### Demo Credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Configuration
+
+### Environment Variables
+
+**Backend (.env):**
